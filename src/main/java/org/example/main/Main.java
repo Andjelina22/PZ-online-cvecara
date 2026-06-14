@@ -7,6 +7,8 @@ import org.example.model.Korisnik;
 import org.example.model.Proizvod;
 import org.example.model.Recenzija;
 import org.example.service.ReviewService;
+import org.example.service.ProductService;
+
 
 import java.util.Scanner;
 //UML dijagram dodat u dokumentaciju
@@ -24,6 +26,7 @@ public class Main {
         ProizvodDAO proizvodDAO = new ProizvodDAO();
         PorudzbinaDAO porudzbinaDAO = new PorudzbinaDAO();
         ReviewService reviewService = new ReviewService();
+        ProductService productService = new ProductService();
 
         int izbor;
 
@@ -68,6 +71,18 @@ public class Main {
 
                     System.out.print("Lozinka: ");
                     String lozinka = sc.nextLine();
+
+                    if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+
+                        System.out.println("Neispravan format email adrese!");
+                        break;
+                    }
+
+                    if (lozinka.length() < 8) {
+
+                        System.out.println("Lozinka mora imati najmanje 8 karaktera!");
+                        break;
+                    }
 
                     Korisnik korisnik = new Korisnik(
                             0,
@@ -152,23 +167,27 @@ public class Main {
 
                 case 5: {
 
+                    System.out.print("ID proizvoda: ");
+                    int proizvodId = sc.nextInt();
+                    sc.nextLine();
+
                     System.out.print("Komentar: ");
-                    String komentar =
-                            sc.nextLine();
+                    String komentar = sc.nextLine();
 
                     System.out.print("Ocena (1-5): ");
-                    int ocena =
-                            sc.nextInt();
+                    int ocena = sc.nextInt();
 
                     Recenzija recenzija =
                             new Recenzija(
                                     0,
+                                    proizvodId,
                                     ocena,
                                     komentar
                             );
 
-                    reviewService
-                            .dodajRecenziju(recenzija);
+                    reviewService.dodajRecenziju(
+                            recenzija
+                    );
 
                     break;
                 }
@@ -200,8 +219,9 @@ public class Main {
                                     kolicina
                             );
 
-                    proizvodDAO
-                            .dodajProizvod(noviProizvod);
+                    productService.dodajProizvod(
+                            noviProizvod
+                    );
 
                     break;
                 }
@@ -243,8 +263,8 @@ public class Main {
                     int porudzbinaId = sc.nextInt();
 
                     System.out.println("\n===== STATUSI =====");
-                    System.out.println("1. Potvrdjena");
-                    System.out.println("2. U pripremi");
+                    System.out.println("1. U obradi");
+                    System.out.println("2. Potvrdjena");
                     System.out.println("3. Spremna za isporuku");
                     System.out.println("4. Poslata");
                     System.out.println("5. Isporucena");
@@ -259,11 +279,11 @@ public class Main {
                     switch (statusIzbor) {
 
                         case 1:
-                            status = "Potvrdjena";
+                            status = "U obradi";
                             break;
 
                         case 2:
-                            status = "U pripremi";
+                            status = "Potvrdjena";
                             break;
 
                         case 3:

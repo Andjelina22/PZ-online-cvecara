@@ -7,6 +7,7 @@ public class Recenzija {
     private int id;
     private int ocena;
     private String komentar;
+    private int proizvodId;
 
     public Recenzija() {
     }
@@ -39,6 +40,25 @@ public class Recenzija {
 
     public void setKomentar(String komentar) {
         this.komentar = komentar;
+    }
+
+    public Recenzija(int id,
+                     int proizvodId,
+                     int ocena,
+                     String komentar) {
+
+        this.id = id;
+        this.proizvodId = proizvodId;
+        this.ocena = ocena;
+        this.komentar = komentar;
+    }
+
+    public int getProizvodId() {
+        return proizvodId;
+    }
+
+    public void setProizvodId(int proizvodId) {
+        this.proizvodId = proizvodId;
     }
 
     @Override

@@ -1,16 +1,18 @@
 package org.example.service;
 
+import org.example.dao.RecenzijaDAO;
 import org.example.model.Recenzija;
 
 public class ReviewService {
 
+    private RecenzijaDAO recenzijaDAO =
+            new RecenzijaDAO();
+
     public void dodajRecenziju(
             Recenzija recenzija){
 
-        System.out.println(
-                "Recenzija uspesno dodata!"
+        recenzijaDAO.dodajRecenziju(
+                recenzija
         );
-
-        System.out.println(recenzija);
     }
 }

@@ -1,27 +1,29 @@
 package org.example.service;
 
-import org.example.model.Porudzbina;
+import org.example.dao.PorudzbinaDAO;
 
 public class OrderService {
 
-    public void kreirajPorudzbinu(Porudzbina porudzbina){
+    private PorudzbinaDAO dao =
+            new PorudzbinaDAO();
 
-        System.out.println(
-                "Porudzbina uspesno kreirana!"
+    public void kreirajPorudzbinu(
+            int korisnikId,
+            double iznos){
+
+        dao.dodajPorudzbinu(
+                korisnikId,
+                iznos
         );
-
-        System.out.println(porudzbina);
     }
 
     public void promeniStatus(
-            Porudzbina porudzbina,
-            String noviStatus){
+            int id,
+            String status){
 
-        porudzbina.setStatus(noviStatus);
-
-        System.out.println(
-                "Status promenjen na: "
-                        + noviStatus
+        dao.promeniStatus(
+                id,
+                status
         );
     }
 }
