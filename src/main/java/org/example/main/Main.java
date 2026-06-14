@@ -12,6 +12,7 @@ import java.util.Scanner;
 //UML dijagram dodat u dokumentaciju
 //ER dijagram dodat u dokumentaciju
 //Ažurirana projektna dokumentacija
+//Završna verzija projekta
 
 public class Main {
 
