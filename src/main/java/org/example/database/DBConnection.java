@@ -2,7 +2,7 @@ package org.example.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+//Konekcija sa bazom podataka
 public class DBConnection {
 
     private static final String URL =
