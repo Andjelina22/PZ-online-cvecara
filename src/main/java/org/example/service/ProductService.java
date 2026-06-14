@@ -3,6 +3,8 @@ package org.example.service;
 import org.example.dao.ProizvodDAO;
 import org.example.model.Proizvod;
 
+//Servis za rad sa proizvodima
+
 public class ProductService {
 
     private ProizvodDAO proizvodDAO =
