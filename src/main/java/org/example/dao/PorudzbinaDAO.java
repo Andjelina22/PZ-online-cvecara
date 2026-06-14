@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+//DAO klasa za upravljanje porudzbinama
+
 public class PorudzbinaDAO {
 
     public void dodajPorudzbinu(
