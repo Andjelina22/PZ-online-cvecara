@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+//Registracija korisnika
+
 public class KorisnikDAO {
 
     public void dodajKorisnika(Korisnik korisnik) {
