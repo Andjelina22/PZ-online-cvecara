@@ -11,6 +11,7 @@ import org.example.service.ReviewService;
 import java.util.Scanner;
 //UML dijagram dodat u dokumentaciju
 //ER dijagram dodat u dokumentaciju
+//Ažurirana projektna dokumentacija
 
 public class Main {
 
