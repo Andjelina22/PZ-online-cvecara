@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+//DAO klasa za upravljanje proizvodima
+
 public class ProizvodDAO {
 
     public void dodajProizvod(Proizvod proizvod) {
