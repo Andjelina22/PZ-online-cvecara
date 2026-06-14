@@ -1,5 +1,7 @@
 package org.example.model;
 
+//Model klase za rad sa recenzijama
+
 public class Recenzija {
 
     private int id;
